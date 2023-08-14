@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  api:
+    build:
+      context: deployments/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    container_name: api
