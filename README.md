@@ -32,7 +32,9 @@ go run scripts\mock\main.go
 
 ## Documentation
 <details>
+ 
  #### Get user details
+ 
  <summary><code>POST</code> <code><b>/user/:id</b></code> </summary>
 
 ##### Parameters
