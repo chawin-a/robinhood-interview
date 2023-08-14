@@ -6,25 +6,13 @@ import (
 	"github.com/google/uuid"
 )
 
-type InterviewStatus int
+type InterviewStatus string
 
 const (
-	TO_DO InterviewStatus = iota
-	IN_PROGRESS
-	DONE
+	TO_DO       InterviewStatus = "To Do"
+	IN_PROGRESS                 = "In Progress"
+	DONE                        = "Done"
 )
-
-func (s InterviewStatus) String() string {
-	switch s {
-	case TO_DO:
-		return "To Do"
-	case IN_PROGRESS:
-		return "In Progress"
-	case DONE:
-		return "Done"
-	}
-	panic("invalid interview status")
-}
 
 type Interview struct {
 	Id          uuid.UUID

@@ -28,13 +28,15 @@ func (r *UserRepository) Create(ctx context.Context, user *entity.User) (*entity
 }
 
 // Get implements datagateway.User.
-func (*UserRepository) Get(ctx context.Context, id uuid.UUID) (*entity.User, error) {
-	panic("unimplemented")
-}
-
-// List implements datagateway.User.
-func (*UserRepository) List(ctx context.Context, ids []uuid.UUID) ([]*entity.User, error) {
-	panic("unimplemented")
+func (r *UserRepository) Get(ctx context.Context, id uuid.UUID) (*entity.User, error) {
+	var model User
+	if err := r.db.NewSelect().
+		Model(&model).
+		Where("id = ?", id).
+		Scan(ctx); err != nil {
+		return nil, err
+	}
+	return model.ToEntity(), nil
 }
 
 func NewUserRepository(db *bun.DB) datagateway.User {

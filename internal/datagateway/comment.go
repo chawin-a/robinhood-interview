@@ -9,5 +9,5 @@ import (
 
 type Comment interface {
 	Create(ctx context.Context, comment *entity.Comment) (*entity.Comment, error)
-	ListByUserId(ctx context.Context, userId uuid.UUID) ([]*entity.Comment, error)
+	ListByInterviewId(ctx context.Context, interviewId uuid.UUID) ([]*entity.Comment, error)
 }

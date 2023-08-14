@@ -13,6 +13,23 @@ type CommentRepository struct {
 	db *bun.DB
 }
 
+// ListByInterviewId implements datagateway.Comment.
+func (r *CommentRepository) ListByInterviewId(ctx context.Context, interviewId uuid.UUID) ([]*entity.Comment, error) {
+	var models []Comment
+	if err := r.db.NewSelect().
+		Model(&models).
+		Where("interview_id = ?", interviewId).
+		Order("created_at DESC").
+		Scan(ctx); err != nil {
+		return nil, err
+	}
+	var res []*entity.Comment
+	for _, model := range models {
+		res = append(res, model.ToEntity())
+	}
+	return res, nil
+}
+
 // Create implements datagateway.Comment.
 func (r *CommentRepository) Create(ctx context.Context, comment *entity.Comment) (*entity.Comment, error) {
 	commentModel := fromEntity(comment)
@@ -25,11 +42,6 @@ func (r *CommentRepository) Create(ctx context.Context, comment *entity.Comment)
 		return nil, err
 	}
 	return commentModel.ToEntity(), nil
-}
-
-// ListByUserId implements datagateway.Comment.
-func (*CommentRepository) ListByUserId(ctx context.Context, userId uuid.UUID) ([]*entity.Comment, error) {
-	panic("unimplemented")
 }
 
 func NewCommentRepository(db *bun.DB) datagateway.Comment {

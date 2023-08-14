@@ -9,7 +9,7 @@ import (
 	"github.com/chawin-a/robinhood-interview/internal/entity"
 	"github.com/chawin-a/robinhood-interview/internal/postgres"
 	repository_comment "github.com/chawin-a/robinhood-interview/internal/repository/comment"
-	repository_interview "github.com/chawin-a/robinhood-interview/internal/repository/repository"
+	repository_interview "github.com/chawin-a/robinhood-interview/internal/repository/interview"
 	repository_user "github.com/chawin-a/robinhood-interview/internal/repository/user"
 	"github.com/google/uuid"
 )

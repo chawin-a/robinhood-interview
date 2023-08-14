@@ -13,4 +13,6 @@ type Interview interface {
 	List(ctx context.Context, limit int, t time.Time) ([]*entity.Interview, error)
 	Get(ctx context.Context, id uuid.UUID) (*entity.Interview, error)
 	Create(ctx context.Context, interview *entity.Interview) (*entity.Interview, error)
+	UpdateStatus(ctx context.Context, id uuid.UUID, status entity.InterviewStatus) (*entity.Interview, error)
+	Archive(ctx context.Context, id uuid.UUID) (*entity.Interview, error)
 }

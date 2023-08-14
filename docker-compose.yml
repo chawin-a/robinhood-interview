@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    restart: always
+    networks:
+      mynetwork:
+        ipv4_address: 10.5.0.7
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    container_name: api
+    networks:
+      mynetwork:
+        ipv4_address: 10.5.0.6
+    links:
+      - "db"
+    volumes:
+      - type: bind
+        source: docker-configs
+        target: /app/configs
+
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1

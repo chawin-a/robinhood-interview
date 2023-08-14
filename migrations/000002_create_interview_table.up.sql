@@ -12,10 +12,3 @@ CREATE TABLE IF NOT EXISTS "interviews" (
 );
 
 CREATE INDEX interview_order_by_created_at ON interviews (created_at);
-
-CREATE TRIGGER update_interview_updated_at
-    AFTER UPDATE
-    ON
-        interviews
-    FOR EACH ROW
-EXECUTE PROCEDURE update_updated_at();
