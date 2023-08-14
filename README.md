@@ -28,6 +28,9 @@ go run scripts\mock\main.go
 ```
 
 ## Database Design
-```{toggle}
+<details>
+<summary>Click to show diagram</summary>
+```
 ![alt text](https://github.com/chawin-a/robinhood-interview/blob/main/images/db-diagram.png?raw=true)
 ```
+</details>
