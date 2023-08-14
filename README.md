@@ -6,4 +6,4 @@ migrate -database postgres://postgres:password@localhost:5432/db?sslmode=disable
 
 migrate create -ext sql -dir migrations -seq name_version
 
-![alt text](https://github.com/chawin-a/robinhood-interview/blob/master/images/db-diagram.png?raw=true)
+![alt text](https://github.com/chawin-a/robinhood-interview/blob/main/images/db-diagram.png?raw=true)
