@@ -3,9 +3,9 @@ module github.com/chawin-a/robinhood-interview
 go 1.21.0
 
 require (
+	github.com/aschenmaker/fiber-health-check v0.1.1
 	github.com/gofiber/fiber/v2 v2.48.0
 	github.com/google/uuid v1.3.0
-	github.com/justinas/alice v1.2.0
 	github.com/spf13/viper v1.16.0
 	github.com/uptrace/bun v1.1.14
 	github.com/uptrace/bun/dialect/pgdialect v1.1.14
@@ -15,7 +15,6 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
-	github.com/aschenmaker/fiber-health-check v0.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
