@@ -58,7 +58,9 @@ go run scripts\mock\main.go
 
 </details>
 <details>
+ 
  #### List interviews details
+ 
  <summary><code>POST</code> <code><b>/interview</b></code> </summary>
 
 ##### Parameters
@@ -82,7 +84,9 @@ go run scripts\mock\main.go
 
 </details>
 <details>
+ 
 #### Get interview details
+
  <summary><code>POST</code> <code><b>/interview/:id</b></code> </summary>
 
 ##### Parameters
@@ -106,7 +110,9 @@ go run scripts\mock\main.go
 
 </details>
 <details>
+ 
  #### Archive interview
+ 
  <summary><code>POST</code> <code><b>/interview/:id/archive</b></code> </summary>
 
 ##### Parameters
@@ -130,7 +136,9 @@ go run scripts\mock\main.go
 
 </details>
 <details>
+ 
  #### Update status interview
+ 
  <summary><code>POST</code> <code><b>/interview/:id/update_status</b></code> </summary>
 
 ##### Parameters
@@ -154,7 +162,9 @@ go run scripts\mock\main.go
 
 </details>
 <details>
+ 
  #### List interview's comments
+ 
  <summary><code>POST</code> <code><b>/interview/:id/comment</b></code> </summary>
 
 ##### Parameters
@@ -179,6 +189,7 @@ go run scripts\mock\main.go
 </details>
 
 <details>
+ 
  #### Create interview's comments
 
  <summary><code>POST</code> <code><b>/interview/:id/comment/create</b></code> </summary>
