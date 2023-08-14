@@ -1,9 +1,9 @@
 # Robinhood Assignment
  
 ## Prerequisites
-- `Docker`
-- `Go`
-- `[go-migrate](https://github.com/golang-migrate/migrate)`
+- Docker
+- Go
+- [go-migrate](https://github.com/golang-migrate/migrate)
 
 ## Getting started
 1. Clone the repository
