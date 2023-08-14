@@ -29,3 +29,33 @@ go run scripts\mock\main.go
 
 ## Database Design
 ![alt text](https://github.com/chawin-a/robinhood-interview/blob/main/images/db-diagram.png?raw=true)
+
+## Documentation
+
+#### Get user details
+
+<details>
+ <summary><code>POST</code> <code><b>/user/:id</b></code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | id      |  required | uuid   | N/A  |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `Configuration created successfully`                                |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
+> ```
+
+</details>
+
+------------------------------------------------------------------------------------------
