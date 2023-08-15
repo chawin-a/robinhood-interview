@@ -16,6 +16,7 @@ import (
 	handler_interview "github.com/chawin-a/robinhood-interview/internal/handler/interview"
 	handler_user "github.com/chawin-a/robinhood-interview/internal/handler/user"
 	middleware_logger "github.com/chawin-a/robinhood-interview/internal/middleware/logger"
+	middleware_mockauth "github.com/chawin-a/robinhood-interview/internal/middleware/mockauth"
 	"github.com/chawin-a/robinhood-interview/internal/postgres"
 	repository_comment "github.com/chawin-a/robinhood-interview/internal/repository/comment"
 	repository_interview "github.com/chawin-a/robinhood-interview/internal/repository/interview"
@@ -70,7 +71,7 @@ func main() {
 
 	commentAPI := interviewAPI.Group("/:interviewId/comment")
 	commentAPI.Post("/", commentHandler.List)
-	commentAPI.Post("/create", commentHandler.Create)
+	commentAPI.Post("/create", middleware_mockauth.NewMockAuth(userUsecase), commentHandler.Create)
 
 	errWg.Go(func() error {
 		if err := app.Listen(fmt.Sprintf(":%s", conf.App.Port)); err != nil {

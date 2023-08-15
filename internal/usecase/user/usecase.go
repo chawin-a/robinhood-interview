@@ -21,3 +21,7 @@ func NewUsecase(userDg datagateway.User) *Usecase {
 func (u *Usecase) Get(ctx context.Context, id uuid.UUID) (*entity.User, error) {
 	return u.userDg.Get(ctx, id)
 }
+
+func (u *Usecase) List(ctx context.Context) ([]*entity.User, error) {
+	return u.userDg.List(ctx)
+}

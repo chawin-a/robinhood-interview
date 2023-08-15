@@ -11,7 +11,6 @@ import (
 
 type CreateRequestBody struct {
 	InterviewId uuid.UUID `params:"interviewId"`
-	UserId      uuid.UUID `json:"user_id"`
 	Comment     string    `json:"comment"`
 }
 
@@ -27,9 +26,9 @@ func (h *Handler) Create(ctx *fiber.Ctx) error {
 	if err := ctx.ParamsParser(req); err != nil {
 		return ctx.Status(http.StatusBadRequest).JSON(map[string]string{"error": err.Error()})
 	}
-
+	userId := ctx.UserContext().Value("userId").(uuid.UUID)
 	comment, err := h.commentUsecase.Create(ctx.UserContext(), &entity.Comment{
-		UserId:      req.UserId,
+		UserId:      userId,
 		InterviewId: req.InterviewId,
 		Comment:     req.Comment,
 	})

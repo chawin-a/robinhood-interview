@@ -13,6 +13,21 @@ type UserRepository struct {
 	db *bun.DB
 }
 
+// List implements datagateway.User.
+func (r *UserRepository) List(ctx context.Context) ([]*entity.User, error) {
+	var models []User
+	if err := r.db.NewSelect().
+		Model(&models).
+		Scan(ctx); err != nil {
+		return nil, err
+	}
+	var res []*entity.User
+	for _, model := range models {
+		res = append(res, model.ToEntity())
+	}
+	return res, nil
+}
+
 // Create implements datagateway.User.
 func (r *UserRepository) Create(ctx context.Context, user *entity.User) (*entity.User, error) {
 	userModel := fromEntity(user)

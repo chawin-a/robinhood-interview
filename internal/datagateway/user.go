@@ -10,4 +10,5 @@ import (
 type User interface {
 	Create(ctx context.Context, user *entity.User) (*entity.User, error)
 	Get(ctx context.Context, id uuid.UUID) (*entity.User, error)
+	List(ctx context.Context) ([]*entity.User, error)
 }

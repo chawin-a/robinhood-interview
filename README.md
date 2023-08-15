@@ -2,7 +2,7 @@
  
 ## Prerequisites
 - Docker
-- Go
+- Go 1.21.0
 - [go-migrate](https://github.com/golang-migrate/migrate)
 
 ## Getting started
@@ -19,12 +19,12 @@ docker compose up -d
 
 3. Run migrations
 ```bash
-migrate -database postgres://postgres:password@localhost:5432/db?sslmode=disable -path migrations up
+migrate -path migrations -database "postgres://postgres:password@localhost:5432/db?sslmode=disable" up
 ```
 
 4. Init mock data
 ```bash
-go run scripts\mock\main.go
+go run scripts/mock/main.go
 ```
 
 ## Database Design
