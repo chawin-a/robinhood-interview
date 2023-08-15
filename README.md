@@ -101,12 +101,6 @@ go run scripts/mock/main.go
 }
 ```
 
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
-
 </details>
 <details>
  
@@ -123,15 +117,19 @@ go run scripts/mock/main.go
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+```javascript
+{
+    "interview": {
+        "Id": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+        "UserId": "86839593-8d05-4798-8d86-e93f411edc08",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula purus, pulvinar vel nisi in, feugiat gravida lorem. Phasellus elit nunc, posuere ac ante sit amet, bibendum iaculis mi.",
+        "Status": "To Do",
+        "IsArchived": false,
+        "CreatedAt": "2023-08-15T03:08:02.970709Z",
+        "UpdatedAt": "2023-08-15T03:08:02.970709Z"
+    }
+}
+```
 
 </details>
 <details>
@@ -149,15 +147,19 @@ go run scripts/mock/main.go
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+```javascript
+{
+    "interview": {
+        "Id": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+        "UserId": "86839593-8d05-4798-8d86-e93f411edc08",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula purus, pulvinar vel nisi in, feugiat gravida lorem. Phasellus elit nunc, posuere ac ante sit amet, bibendum iaculis mi.",
+        "Status": "To Do",
+        "IsArchived": true,
+        "CreatedAt": "2023-08-15T03:08:02.970709Z",
+        "UpdatedAt": "2023-08-15T03:17:08.492502Z"
+    }
+}
+```
 
 </details>
 <details>
@@ -173,17 +175,27 @@ go run scripts/mock/main.go
 > | id      |  required | uuid   | N/A  |
 
 
+##### Body
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | status      |  required | ENUM("To Do", "In Progress", "Done")   | N/A  |
+
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+```javascript
+{
+    "interview": {
+        "Id": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+        "UserId": "86839593-8d05-4798-8d86-e93f411edc08",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula purus, pulvinar vel nisi in, feugiat gravida lorem. Phasellus elit nunc, posuere ac ante sit amet, bibendum iaculis mi.",
+        "Status": "In Progress",
+        "IsArchived": true,
+        "CreatedAt": "2023-08-15T03:08:02.970709Z",
+        "UpdatedAt": "2023-08-15T03:18:15.789981Z"
+    }
+}
+```
 
 </details>
 <details>
@@ -201,15 +213,40 @@ go run scripts/mock/main.go
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+```javascript
+{
+    "comments": [
+        {
+            "Id": "92035213-14fa-4182-9d5c-2ae05c87dafa",
+            "UserId": "7474c95f-5a85-433a-bc39-6bfe66c4ddf4",
+            "InterviewId": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+            "Comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "CreatedAt": "2023-08-15T03:08:02.981083Z"
+        },
+        {
+            "Id": "209530ab-59bb-4d8a-a682-77a250eb6e2b",
+            "UserId": "a228d32b-0fd0-47d8-8dbc-4d9fc9a9b9c2",
+            "InterviewId": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+            "Comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "CreatedAt": "2023-08-15T03:08:02.979885Z"
+        },
+        {
+            "Id": "0eb265ba-0197-4a0f-a12f-47cddc6e3e9b",
+            "UserId": "7474c95f-5a85-433a-bc39-6bfe66c4ddf4",
+            "InterviewId": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+            "Comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "CreatedAt": "2023-08-15T03:08:02.978672Z"
+        },
+        {
+            "Id": "74d0b58a-0bd2-40ed-b171-27b4f05ecf23",
+            "UserId": "1074ece6-2c8c-4fc4-9df6-35bcd2d11f38",
+            "InterviewId": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+            "Comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "CreatedAt": "2023-08-15T03:08:02.975957Z"
+        }
+    ]
+}
+```
 
 </details>
 
@@ -225,18 +262,27 @@ go run scripts/mock/main.go
 > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
 > | id      |  required | uuid   | N/A  |
 
+##### Body
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | comment      |  required | string   | N/A  |
+
+
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+```javascript
+{
+    "comment": {
+        "Id": "fa380cb2-f49a-48d6-ba5f-4c3e0308f4de",
+        "UserId": "1074ece6-2c8c-4fc4-9df6-35bcd2d11f38",
+        "InterviewId": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+        "Comment": "hello",
+        "CreatedAt": "2023-08-15T03:22:27.255629Z"
+    }
+}
+```
 
 </details>
 
