@@ -48,13 +48,7 @@ go run scripts/mock/main.go
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
-
-##### Example cURL
-
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+> | `200`         | `application/json`        | `{"user":{"Id":"033d6d81-23ce-484b-97f7-d06b7ae0aba6","Username":"user5","Name":"user5","Email":"user5@robinhood.co.th","CreatedAt":"2023-08-15T03:02:11.326823Z"}}`                                |
 
 </details>
 <details>
@@ -63,18 +57,33 @@ go run scripts/mock/main.go
  
  <summary><code>POST</code> <code><b>/interview</b></code> </summary>
 
-##### Parameters
-
-> | name      |  type     | data type               | description                                                           |
-> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-> | id      |  required | uuid   | N/A  |
-
-
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `Configuration created successfully`                                |
+```javascript
+{
+    "interviews": [
+        {
+            "Id": "2b0f6430-48c5-484c-a0b0-010d386bddbb",
+            "UserId": "86839593-8d05-4798-8d86-e93f411edc08",
+            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula purus, pulvinar vel nisi in, feugiat gravida lorem. Phasellus elit nunc, posuere ac ante sit amet, bibendum iaculis mi.",
+            "Status": "To Do",
+            "IsArchived": false,
+            "CreatedAt": "2023-08-15T03:08:02.970709Z",
+            "UpdatedAt": "2023-08-15T03:08:02.970709Z"
+        },
+        {
+            "Id": "ebbeca29-dfc9-49a0-b392-c1668be9520e",
+            "UserId": "7474c95f-5a85-433a-bc39-6bfe66c4ddf4",
+            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula purus, pulvinar vel nisi in, feugiat gravida lorem. Phasellus elit nunc, posuere ac ante sit amet, bibendum iaculis mi.",
+            "Status": "To Do",
+            "IsArchived": false,
+            "CreatedAt": "2023-08-15T03:08:02.982283Z",
+            "UpdatedAt": "2023-08-15T03:08:02.982283Z"
+        }
+    ],
+    "latest_timestamp": "2023-08-15T03:08:02.982283Z"
+}
+```
 
 ##### Example cURL
 
