@@ -46,9 +46,17 @@ go run scripts/mock/main.go
 
 ##### Responses
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"user":{"Id":"033d6d81-23ce-484b-97f7-d06b7ae0aba6","Username":"user5","Name":"user5","Email":"user5@robinhood.co.th","CreatedAt":"2023-08-15T03:02:11.326823Z"}}`                                |
+```javascript
+{
+    "user": {
+        "Id": "033d6d81-23ce-484b-97f7-d06b7ae0aba6",
+        "Username": "user5",
+        "Name": "user5",
+        "Email": "user5@robinhood.co.th",
+        "CreatedAt": "2023-08-15T03:02:11.326823Z"
+    }
+}
+```
 
 </details>
 <details>
@@ -56,6 +64,14 @@ go run scripts/mock/main.go
  #### List interviews details
  
  <summary><code>POST</code> <code><b>/interview</b></code> </summary>
+
+##### Body
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | limit      |  required | int   | N/A  |
+> | latest_timestamp      |   | timestamptz   | N/A  |
+
 
 ##### Responses
 
